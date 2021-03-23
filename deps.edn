@@ -1,5 +1,14 @@
 {:paths ["src" "resources"]
- :deps {org.clojure/clojure {:mvn/version "1.10.2"}}
+ :mvn/repos {"space-maven" {:url "https://packages.jetbrains.team/maven/p/skija/maven"}}
+ :deps {org.clojure/clojure {:mvn/version "1.10.2"}
+        org.jetbrains.skija/skija-macos-x64 {:mvn/version "0.90.1"}
+        org.lwjgl/lwjgl {:mvn/version "3.2.3"}
+        org.lwjgl/lwjgl$natives-macos {:mvn/version "3.2.3"}
+        org.lwjgl/lwjgl-glfw {:mvn/version "3.2.3"}
+        org.lwjgl/lwjgl-glfw$natives-macos {:mvn/version "3.2.3"}
+        org.lwjgl/lwjgl-opengl {:mvn/version "3.2.3"}
+        org.lwjgl/lwjgl-opengl$natives-macos {:mvn/version "3.2.3"}
+        }
  :aliases
  {:run-m {:main-opts ["-m" "com.phronemophobic.skija-macosx-crash-repro"]}
   :run-x {:ns-default com.phronemophobic.skija-macosx-crash-repro
