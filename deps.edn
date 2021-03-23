@@ -1,0 +1,21 @@
+{:paths ["src" "resources"]
+ :deps {org.clojure/clojure {:mvn/version "1.10.2"}}
+ :aliases
+ {:run-m {:main-opts ["-m" "com.phronemophobic.skija-macosx-crash-repro"]}
+  :run-x {:ns-default com.phronemophobic.skija-macosx-crash-repro
+          :exec-fn greet
+          :exec-args {:name "Clojure"}}
+  :test {:extra-paths ["test"]
+         :extra-deps {org.clojure/test.check {:mvn/version "1.1.0"}}}
+  :runner
+  {:extra-deps {com.cognitect/test-runner
+                {:git/url "https://github.com/cognitect-labs/test-runner"
+                 :sha "b6b3193fcc42659d7e46ecd1884a228993441182"}}
+   :main-opts ["-m" "cognitect.test-runner"
+               "-d" "test"]}
+  :uberjar {:replace-deps {com.github.seancorfield/depstar {:mvn/version "2.0.193"}}
+            :exec-fn hf.depstar/uberjar
+            :exec-args {:aot true
+                        :jar "skija-macosx-crash-repro.jar"
+                        :main-class "com.phronemophobic.skija-macosx-crash-repro"
+                        :sync-pom true}}}}
