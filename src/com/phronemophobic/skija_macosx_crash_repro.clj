@@ -70,9 +70,11 @@
       (GLFW/glfwPollEvents)
       (Callbacks/glfwFreeCallbacks window)
       (GLFW/glfwHideWindow window)
-      (GLFW/glfwDestroyWindow window)
+
       (when do-not-crash?
-        (.close context))      
+        (.close context))
+
+      (GLFW/glfwDestroyWindow window)
       (GLFW/glfwTerminate)
       (.free (GLFW/glfwSetErrorCallback nil))
       (System/gc))
