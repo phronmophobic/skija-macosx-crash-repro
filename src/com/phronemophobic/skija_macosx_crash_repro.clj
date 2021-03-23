@@ -111,7 +111,7 @@
 (defn run-test []
   (while true
     (run true)
-    (Thread/sleep 500)))
+    (Thread/sleep 1000)))
 
 
 
